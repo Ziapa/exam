@@ -2,7 +2,7 @@ import React from "react";
 
 type ButtonPlusPropsType = {
     changeCount: () => void
-    changeStatus: string
+    changeStatus?: string
     title: string
 }
 

@@ -21,7 +21,6 @@ function App() {
 
                 <ButtonPlus
                     title={"reset"}
-                    changeStatus={count === 5 ? "notError" : "error"}
                     changeCount={resetCount}/>
             </div>
         </div>
