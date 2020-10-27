@@ -1,28 +1,37 @@
 import React, {useState} from 'react';
 import './App.scss';
-import { Counter} from "./Counter";
-import {ButtonPlus} from "./ButtonPlus";
+import {Counter} from "./Counter";
 
 
 function App() {
 
-    const [count, setCount] = useState(0)
-    let changeCount = () => count !== 5 && setCount(count + 1)
-    let resetCount = () => setCount(0)
+
+    const [min, setMin] = useState<number>(0)
+    const [max, setMax] = useState<number>(0)
+    const [set, setSet] = useState<boolean>(false)
+    const offDisable = () => setSet(true)
+    const onDisable = () => setSet(false)
+    const changeMin = (value:number) => setMin(value)
 
     return (
-        <div className="App">
-            <Counter count={count}/>
-            <div className={"btnArea"}>
-                <ButtonPlus
-                    title={"inc"}
-                    changeStatus={ count === 5 ? "error" : "notError"}
-                    changeCount={changeCount}/>
+        <div className={"wrapper"}>
 
-                <ButtonPlus
-                    title={"reset"}
-                    changeCount={resetCount}/>
-            </div>
+            <Counter
+                changeMin={changeMin}
+                min={min}
+                max={max}
+                display={true}
+                button={true}
+            />
+            <Counter
+                changeMin={changeMin}
+                min={min}
+                max={max}
+                display={false}
+                button={false}
+            />
+
+
         </div>
     );
 }

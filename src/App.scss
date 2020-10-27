@@ -1,6 +1,8 @@
 html {
   background-color: dimgrey;
-
+.wrapper {
+  display: flex;
+  justify-content: space-around;
   .App {
     border: 2px solid aqua;
     border-radius: 5px;
@@ -58,6 +60,7 @@ html {
       }
     }
   }
+}
 }
 
 

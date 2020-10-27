@@ -1,19 +1,60 @@
-import React from "react";
+import {Display} from "./Display";
+import {ButtonPlus} from "./ButtonPlus";
+import React, {ChangeEvent, useState} from "react";
 
-
-type DisplayPropsType = {
-    count:number
+type CounterPropsType = {
+    display: boolean
+    button: boolean
+    min: number
+    max: number
+    changeMin: (value: number) => void
 }
 
-export const Counter = (props: DisplayPropsType) => {
+export function Counter(props: CounterPropsType) {
 
-    const alert = {
-        color: props.count === 5 ? "red" : "black"
+
+
+    const changeMin = (e: ChangeEvent<HTMLInputElement>) => {
+
+        props.changeMin(e.currentTarget.valueAsNumber)
     }
+    const resetMin = () => props.changeMin(0)
 
-return <div className={"field"}>
+    return (
+
+        <div className="App">
+            {props.display ?
+                <div>
+                    <input value={props.max} onChange={() => {
+                    }} type="number"/>
+                    <input value={props.min} onChange={changeMin} type="number"/>
+                </div>
+                :
+                <Display set={true} max={props.max} min={props.min} count={props.min}/>}
+            <div>
+                {props.button ?
+                    <div className={"btnArea"}>
+                        < ButtonPlus
+                            title={"set"}
+                            changeStatus={""}
+                            changeCount={()=>{}}/>
+                    </div>
+
+                    :
+                    <div className={"btnArea"}>
+                        < ButtonPlus
+                            title={"inc"}
+                            changeStatus={""}
+                            changeCount={()=>{}}/>
+
+                        <ButtonPlus
+                            title={"reset"}
+                            changeCount={()=>{}}/>
+                    </div>
+                }
+            </div>
 
 
-    <input style={alert}type="text" value={props.count}/>
-</div>
+        </div>
+    );
 }
