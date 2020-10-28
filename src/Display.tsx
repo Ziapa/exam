@@ -2,21 +2,34 @@ import React from "react";
 
 
 type DisplayPropsType = {
-    count:number
-    min:number
-    max:number
-    set?:boolean
+    count?: number
+    error: string
+    max: number
+    disable?: boolean
+
 }
 
 export const Display = (props: DisplayPropsType) => {
 
     const alert = {
         color: props.count === props.max ? "red" : "black"
+
+    }
+    const color = {
+        color:  "red"
     }
 
-return <div className={"field"}>
+    return <div className={"field"}>
 
-    {props.set ? <div>Set</div> : <div style={alert}>{props.count}</div>}
+        {props.disable
+            ?
+            <div style={color} className={"display"  }>
+
+                {props.error}
+
+            </div>
+            :
+            <div className={"display"} style={alert}>{props.count}</div>}
 
     </div>
 

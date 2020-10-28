@@ -1,66 +1,89 @@
 html {
   background-color: dimgrey;
-.wrapper {
-  display: flex;
-  justify-content: space-around;
-  .App {
-    border: 2px solid aqua;
-    border-radius: 5px;
-    width: 300px;
-    height: 200px;
-    margin: 150px auto;
+
+  .wrapper {
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
 
-    .field {
-      display: flex;
-      justify-content: center;
-
-      input {
-        font-size: 30px;
-        font-weight: bold;
-        outline: 1px transparent;
-        border: none;
-        border-radius: 5px;
-        background-color: aqua;
-        width: 275px;
-        height: 80px;
-        text-align: center;
-      }
-    }
-
-    .btnArea {
-      padding: 10px;
-      margin: 10px;
+    .App {
       border: 2px solid aqua;
       border-radius: 5px;
+      width: 300px;
+      height: 200px;
+      margin: 150px auto;
       display: flex;
+      flex-direction: column;
       justify-content: space-around;
-
-      .error {
-        opacity: 0.5;
-
+      .form {
+        padding: 10px;
+        div  {
+          label {
+            padding-right: 10px;
+          }
+          display: flex;
+          margin-bottom: 10px;
+          input, textarea {
+            flex-grow: 1;
+          }
+        }
       }
 
-      .notError {
-        opacity: 1;
+      .field {
+        display: flex;
+        justify-content: center;
+
+        .display {
+          font-size: 30px;
+          font-weight: bold;
+          outline: 1px transparent;
+          border: none;
+          border-radius: 5px;
+          background-color: aqua;
+          width: 275px;
+          height: 80px;
+          text-align: center;
+        }
       }
 
-      button {
+      .btnArea {
+        padding: 10px;
+        margin: 10px;
+        border: 2px solid aqua;
         border-radius: 5px;
-        border: none;
-        width: 100px;
-        height: 50px;
-        font-size: 30px;
-        font-weight: bold;
-        color: black;
-        background-color: aqua;
-        outline: 1px transparent;
+        display: flex;
+        justify-content: space-around;
+
+        .error {
+          opacity: 0.5;
+
+        }
+
+        .notError {
+          opacity: 1;
+        }
+
+        .set_disable {
+          opacity: 0.5;
+        }
+
+        button {
+          &:disabled {
+            opacity: 0.5;
+          }
+
+          border-radius: 5px;
+          border: none;
+          width: 100px;
+          height: 50px;
+          font-size: 30px;
+          font-weight: bold;
+          color: black;
+          background-color: aqua;
+          outline: 1px transparent;
+        }
       }
     }
   }
-}
 }
 
 
