@@ -1,23 +1,21 @@
 import {Display} from "./Display";
 import {ButtonPlus} from "./ButtonPlus";
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent} from "react";
 
 type CounterPropsType = {
-    onDisable: () => void
-    offDisable: () => void
-    display: boolean
-    button: boolean
-    min: number
+    min?: number
     max: number
+    inc?: number
+    error: string
+    disable: boolean
+    setDisplay: boolean
+    incPlus: () => void
+    disableBtn?: boolean
+    onDisable: () => void
+    changeInc?: () => void
+    disableIncReset?: boolean
     changeMax: (value: number) => void
     changeMin: (value: number) => void
-    inc?: number
-    changeInc: () => void
-    disable: boolean
-    incPlus: () => void
-    error: string
-    disableBtn: boolean
-    disableIncReset: boolean
 
 }
 
@@ -34,7 +32,7 @@ export function Counter(props: CounterPropsType) {
     return (
 
         <div className="App">
-            {props.display ?
+            {props.setDisplay ?
                 <div className={"form"}>
                     <div>
                         <label htmlFor="">min value: </label>
@@ -48,12 +46,12 @@ export function Counter(props: CounterPropsType) {
                 :
                 <Display
 
-                    disable={props.disable}
+                    setDisplay={props.setDisplay}
                     max={props.max}
                     error={props.error}
                     count={props.inc}/>}
             <div>
-                {props.button ?
+                {props.setDisplay ?
                     <div className={"btnArea"}>
                         < ButtonPlus
                             disableBtn={props.disableBtn}
@@ -63,7 +61,11 @@ export function Counter(props: CounterPropsType) {
                     </div>
 
                     :
+
+
+
                     <div className={"btnArea"}>
+
                         < ButtonPlus
 
                             changeStatus={props.inc === props.max ? "set_disable" : ""}

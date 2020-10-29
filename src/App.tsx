@@ -11,7 +11,6 @@ function App() {
     const [disable, setDisable] = useState<boolean>(true)
     const [disableBtn, setDisableBtn] = useState<boolean>(true)
     const [disableIncReset, setDisableIncReset] = useState<boolean>(true)
-    const [color, setColor] = useState<boolean>(true)
     const [error, setError] = useState<string>("Enter value and click 'set'")
     const onDisable = () => setDisable(true)
     const offDisable = () => setDisable(false)
@@ -42,12 +41,12 @@ function App() {
             setError("max не может быть меньше min")
             setMax(value)
         } else if (value < 0) {
-            setDisableBtn(true)
             setError("max не может быть меньше 0")
+            setDisableBtn(true)
             setMax(value)
         } else if (value === min) {
-            setDisableBtn(true)
             setError("max не может быть равен min")
+            setDisableBtn(true)
             setMax(value)
         } else {
             setDisableIncReset(true)
@@ -63,6 +62,7 @@ function App() {
         }
     }
     const changeInc = () => {
+
         offDisable()
         setInc(min)
         setDisableIncReset(false)
@@ -72,37 +72,30 @@ function App() {
         <div className={"wrapper"}>
 
             <Counter
-                disableIncReset={disableIncReset}
-                disableBtn={disableBtn}
-                error={error}
-                incPlus={incPlus}
-                onDisable={onDisable}
-                offDisable={offDisable}
-                disable={disable}
-                changeInc={changeInc}
-                changeMin={changeMin}
-                changeMax={changeMax}
+                inc={inc}
                 min={min}
                 max={max}
-                display={true}
-                button={true}
+                error={error}
+                setDisplay={true}
+                incPlus={incPlus}
+                disable={disable}
+                onDisable={onDisable}
+                changeMin={changeMin}
+                changeMax={changeMax}
+                disableBtn={disableBtn}
             />
             <Counter
-                disableIncReset={disableIncReset}
-                disableBtn={disableBtn}
-                error={error}
-                incPlus={incPlus}
-                onDisable={onDisable}
-                offDisable={offDisable}
-                disable={disable}
                 inc={inc}
+                max={max}
+                error={error}
+                setDisplay={false}
+                incPlus={incPlus}
+                disable={disable}
+                onDisable={onDisable}
                 changeInc={changeInc}
                 changeMin={changeMin}
                 changeMax={changeMax}
-                min={min}
-                max={max}
-                display={false}
-                button={false}
+                disableIncReset={disableIncReset}
             />
 
 

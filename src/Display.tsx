@@ -3,9 +3,9 @@ import React from "react";
 
 type DisplayPropsType = {
     count?: number
-    error: string
+    error?: string
     max: number
-    disable?: boolean
+    setDisplay?: boolean
 
 }
 
@@ -21,7 +21,7 @@ export const Display = (props: DisplayPropsType) => {
 
     return <div className={"field"}>
 
-        {props.disable
+        {props.setDisplay
             ?
             <div style={color} className={"display"  }>
 

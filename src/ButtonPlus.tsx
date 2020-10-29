@@ -1,10 +1,10 @@
 import React from "react";
 
 type ButtonPlusPropsType = {
-    changeCount?: () => void
-    changeStatus?: string
     title: string
-    disableBtn:boolean
+    disableBtn?:boolean
+    changeStatus?: string
+    changeCount?: () => void
 }
 
 
